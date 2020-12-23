@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
@@ -47,10 +46,9 @@ interface ReservationRepository extends ReactiveCrudRepository<Reservation, Stri
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
 @ToString
 class Reservation {
   @Id
-  private String id;
+  private Integer id;
   private String name;
 }

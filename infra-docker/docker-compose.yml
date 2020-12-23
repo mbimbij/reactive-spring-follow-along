@@ -1,0 +1,25 @@
+# Use root/example as user/password credentials
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: reservations
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8082:8080
+
+volumes:
+  db_data:

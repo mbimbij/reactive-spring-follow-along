@@ -29,7 +29,7 @@ class SampleDataInitializer {
 
   @EventListener(ApplicationReadyEvent.class)
   public void ready() {
-    Flux<Reservation> savedReservations = Flux.just("josh", "madura", "mark", "olga", "spencer", "ria", "stéphane", "violetta")
+    Flux<Reservation> savedReservations = Flux.just("joseph", "josh", "madura", "mark", "olga", "spencer", "ria", "stéphane", "violetta")
         .map(name -> new Reservation(null, name))
         .flatMap(reservationRepository::save);
 
